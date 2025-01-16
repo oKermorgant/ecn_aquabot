@@ -1,0 +1,21 @@
+/aquabot/thrusters/left/thrust:
+    type: std_msgs/Float64
+    thrust:
+        min: -5000.
+        max: 5000.
+/aquabot/thrusters/right/thrust:
+    type: std_msgs/Float64
+    thrust:
+        min: -5000.
+        max: 5000.
+/aquabot/thrusters/left/pos:
+    type: std_msgs/Float64
+    angle:
+        min: -pi/4
+        max: pi/4
+
+/aquabot/thrusters/right/pos:
+    type: std_msgs/Float64
+    angle:
+        min: -pi/4
+        max: pi/4
