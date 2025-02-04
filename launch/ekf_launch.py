@@ -10,6 +10,7 @@ def generate_launch_description():
     with sl.group(if_arg = 'rviz'):
         sl.rviz(sl.find('ecn_aquabot', 'config.rviz'))
 
+
     # TODO run gps2pose from aquabot_ekf pkg
     # and robot_localization with config file aquabot_ekf/ekf.yaml
 

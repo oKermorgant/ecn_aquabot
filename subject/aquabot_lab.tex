@@ -56,7 +56,7 @@ sensors/acoustics/receiver/bearing& std\_msgs/Float64& Bearing to pinger
 
 \subsection{\okt{aquabot_ekf}}
 
-This package contains a node (gps2pose) that handles all sensors except images. Its main use is to convert GPS-based information to metric one.
+The \okt{aquabot_ekf} package contains a node (gps2pose) that handles all sensors except images. Its main use is to convert GPS-based information to metric one.
 
 It suscribes to: gps\_fix, imu\_raw, and the pinger and windturbines position topics.
 
@@ -75,7 +75,7 @@ This package is meant \emph{not} to be ready-to-use, a launch file has to be wri
 
 \subsection{\okt{aquabot_motion}}
 
-This package contains two nodes to provide some tools for people not interested in this bits.
+The \okt{aquabot_motion} package contains two nodes to provide some tools for people not interested in this bits.
 
 \begin{itemize}
  \item Control node (cmd.py): This node subscribes to \okt{cmd_vel} (geometry\_msgs/Twist) and odom (nav\_msgs/Odometry). It uses a simple PID to control the thrusters of the boat in order to track the desired twist.
