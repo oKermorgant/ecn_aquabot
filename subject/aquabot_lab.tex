@@ -79,8 +79,8 @@ The \okt{aquabot_motion} package contains two nodes to provide some tools for pe
 
 \begin{itemize}
  \item Control node (cmd.py): This node subscribes to \okt{cmd_vel} (geometry\_msgs/Twist) and odom (nav\_msgs/Odometry). It uses a simple PID to control the thrusters of the boat in order to track the desired twist.
- \item Planning node (planner.py): This node offers a nav\_msgs/GetPlan service that find a path from two start and goal poses in the world
-frame. The path is returned through the service and is also published on the plan topic for visualization purpose. This node also subscribes
+ \item Planning node (planner.py): This node offers a nav\_msgs/GetPlan service (\okt{/aquabot/get_plan}) that finds a path from two start and goal poses in the world
+frame. The path is returned through the service and is also published on the \okt{\aquabot/plan} topic for visualization purpose. This node also subscribes
 to the \okt{goal_pose} topic. In this case it will use the current pose of the boat as the start, the resulting path will be published on plan.
 \end{itemize}
 
