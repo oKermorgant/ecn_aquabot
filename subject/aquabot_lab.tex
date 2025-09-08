@@ -56,7 +56,7 @@ sensors/acoustics/receiver/bearing& std\_msgs/Float64& Bearing to pinger
 
 \subsection{\okt{aquabot_ekf}}
 
-The \okt{aquabot_ekf} package contains a node (gps2pose) that handles all sensors except images. Its main use is to convert GPS-based information to metric one.
+The \okt{aquabot_ekf} package contains a node (gz2ros) that handles all sensors except images. Its main use is to convert raw data from Gazebo (GPS, imu, bearings) to metric ones and adding potential noise, ready to be fused by the EKF.
 
 It suscribes to: gps\_fix, imu\_raw, and the pinger and windturbines position topics.
 
@@ -69,7 +69,7 @@ It publishes:
 \end{itemize}
 
 
-A configuration file to be used with robot\_localization is also available, that can easily consume the topics published by gps2pose in order to get the robot estimate on /tf and odom.
+A configuration file to be used with robot\_localization is also available, that can easily consume the topics published by gz2ros in order to get the robot estimate on /tf and odom.
 
 This package is meant \emph{not} to be ready-to-use, a launch file has to be written in order to use the node and EKF according to the available topics.
 
@@ -80,7 +80,7 @@ The \okt{aquabot_motion} package contains two nodes to provide some tools for pe
 \begin{itemize}
  \item Control node (cmd.py): This node subscribes to \okt{cmd_vel} (geometry\_msgs/Twist) and odom (nav\_msgs/Odometry). It uses a simple PID to control the thrusters of the boat in order to track the desired twist.
  \item Planning node (planner.py): This node offers a nav\_msgs/GetPlan service (\okt{/aquabot/get_plan}) that finds a path from two start and goal poses in the world
-frame. The path is returned through the service and is also published on the \okt{\aquabot/plan} topic for visualization purpose. This node also subscribes
+frame. The path is returned through the service and is also published on the \okt{/aquabot/plan} topic for visualization purpose. This node also subscribes
 to the \okt{goal_pose} topic. In this case it will use the current pose of the boat as the start, the resulting path will be published on plan.
 \end{itemize}
 
@@ -93,7 +93,7 @@ The planner node also publishes markers for the obstacles, to be displayed in RV
 
 \subsection{Setup the localization and visualize your boat}
 
-Write a launch file that runs the \okt{gps2pose} and EKF nodes with the correct topics. This file may also run RViz to show what we know.
+Write a launch file that runs the \okt{gz2ros} and EKF nodes with the correct topics. This file may also run RViz to show what we know.
 
 \subsection{Ensure the boat can move around}
 
